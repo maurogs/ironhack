@@ -1,0 +1,31 @@
+<!-- <% if flash[:notice] %>
+  	<%= flash[:notice] %>
+	<% end %> -->
+
+<%= flash_message %>
+
+<h1><%= @project.name %></h1> 
+
+<ul>
+	<% @project.entries.each do |entry| %> 
+	<li>
+		<%= entry.hours %> - <%= entry.minutes %> - <%= entry.date %>
+	</li>
+	<li> <%= link_to('Delete', project_entry_path(@project, entry),
+	  method: :delete, data: {confirm: 'Are you sure?'}) %> </li>
+	  <%= image_tag entry.poster.url %>
+
+	<% end %> 
+
+	<br>
+	<li>
+		total de horas trabajadas
+		<%= @total_hours %> 
+	</li>
+</ul>
+
+
+<br>
+<li><%= link_to('ADD NEW ENTRY', new_project_entry_path(@project)) %>
+<br>
+<li><%= link_to('GO BACK', projects_path) %>

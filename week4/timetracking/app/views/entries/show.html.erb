@@ -1,0 +1,13 @@
+<%= flash_message %>
+
+
+<h2><%= link_to('Projects', projects_path) %></h2>
+<ul> 
+	<li>
+		<%= @entry.hours %>hours 
+		<%= "%.2d" % @entry.minutes %>minutes 
+		<%= @entry.date.strftime("%Y-%m-%d") %>
+	</li>
+
+</ul>
+

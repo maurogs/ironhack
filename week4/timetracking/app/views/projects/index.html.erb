@@ -1,0 +1,33 @@
+
+<h1> Proyectos con y sin descripcion:</h1>
+
+<ul>
+	<% @projects.each do |project| %>
+	  <li><%= link_to(project.name, project_entries_path(project)) %> </li>
+		<% if project.description.present? %>
+		<li> nombre: <%= project.name %>, descripcion: <%= project.description %></li>
+		<% else %>
+		<li> proyecto sin descripcion: <%= project.name %> </li>
+			  
+
+		<% end %>
+	  <li> <%= link_to('Delete', project_path(project),
+	  method: :delete, data: {confirm: 'Are you sure?'}) %> </li>
+	<% end %>
+</ul>
+  <% if previous_page? %>
+	<%= link_to('<- Anterior', projects_path(page: previous_page)) %>
+  <% end %>
+  <% if next_page? %>
+	<%= link_to('Siguiente ->', projects_path(page: next_page)) %>
+  <% end %>
+
+<h1> 10 ultimos proyectos añadidos: </h1>
+
+<ul>
+	<% @projects_new.each do |project| %>
+	  <li><%= link_to(project.name, project_entries_path(project)) %> </li>
+		<li> nombre del proyecto: <%= project.name %> </li>
+		<li> descripcion del proyecto: <%= project.name %> </li>
+	<% end %>
+</ul>

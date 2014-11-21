@@ -9,7 +9,6 @@
 		<% else %>
 		<li> proyecto sin descripcion: <%= project.name %> </li>
 			  
-
 		<% end %>
 	  <li> <%= link_to('Delete', project_path(project),
 	  method: :delete, data: {confirm: 'Are you sure?'}) %> </li>

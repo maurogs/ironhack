@@ -1,0 +1,12 @@
+<h1> APOYA UN RETO:</h1>
+
+<ul>
+	<% @challenges.each do |chal| %>
+		<%= link_to(chal.name, challenge_path(chal)) %>
+		<li> nombre: <%= chal.name %> </li>
+		<br>
+	<% end %>
+</ul>
+
+<%= link_to 'Add Challenge', new_challenge_path %>
+

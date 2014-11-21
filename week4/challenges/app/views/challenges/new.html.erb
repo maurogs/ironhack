@@ -1,0 +1,14 @@
+<%= flash_message %>
+
+<h1> ADD CHALLENGE </h1>
+<%= form_for [@challenge] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+	<br>
+
+	<%= f.submit 'Save' %>
+	<%= link_to 'BACK TO CHALLENGES', challenges_home_path %>
+<% end %>

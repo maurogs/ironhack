@@ -23,7 +23,6 @@ function max(numbers){
 function min(numbers){
 	var num = 0;
 	var min = numbers[0];
-	console.log(min);
 	for (i=0; i<numbers.length; i++){
 		num = numbers[i];
 

@@ -273,6 +273,85 @@ describe("the JavaScript language", function(){
          expect(x()).toEqual(1);
     });
 
+   
+    //cada vez que se llama a result(), se lanza la funcion interna
+    //que tiene la funcion f(). La funcion interna de f() incrementa 1 a x,
+    //y acumula su valor ahi dentro.
+    //Como hemos llamado 3 veces a result(), el resultado es 4.
+    //La llamada "expect(f()()).toBe(2);" llama a la funcion que está 
+    //dentro de la funcion f(), y devuelve 2.
+    it("calls a function several times", function(){
+        function f(){
+            var x = 1;
+             return function (){
+                x++;   //el valor se va acumulando aqui
+                return x;
+             }
+        };
+
+        function h(){
+              return  result() + 3;
+        };
+
+
+        var result = f(); //Acumula el resultado del return en la variable result
+        result();  //aqui x vale 2 
+        result();  //aqui x vale 3
+        expect(result()).toBe(4);  //aqui x vale 4
+        expect(f()()).toBe(2); //llamada nueva directamente a f(), no se acumula en ninguna variable
+        expect(h()).toEqual(8);
+
+    });
+
+
+    it("iterates an array", function(){
+        function createIterator(arr){
+            var x = -1;
+            return function (){
+                x++;
+                return arr[x];
+                //return arr[x++]   ESTO TAMBIEN FUNCIONA
+            };
+        };
+        var iterate = createIterator([1,2,3]);
+        expect(iterate()).toBe(1);
+        expect(iterate()).toBe(2);
+        expect(iterate()).toBe(3);
+    });
+
+             //ALTERNATIVA
+//        var iterate = (function createIterator(arr){
+//            var i = 0;
+//            return function(){
+//                return arr[i++];
+//            }
+//        }([1,2,3]));
+
+
+    it("uses callbacks for event handling", function(){
+
+        var called = false;
+        counter = 0;
+
+        function handle(){
+            called = true;
+        };
+
+        function trigger(h){
+            if(counter === 1){
+                h();
+            }
+            counter++;
+        };
+
+        trigger(handle);
+        expect(called).toBeFalsy();
+        trigger(handle);
+        expect(called).toBeTruthy();
+  
+    });
+
+
     /*
 
     it("can create closures with free variables", function(){

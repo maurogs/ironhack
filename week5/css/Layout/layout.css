@@ -1,0 +1,151 @@
+body {
+    margin: 0px;
+}
+
+
+#exercices {
+    width: 800px;
+    background-color: grey;
+    position: relative;
+}
+
+
+#header {
+	background-color: aqua;
+	width: 600px;
+	height: 150px;
+}
+
+#logo{
+	width: 200px;
+	height: 150px;
+	position: absolute;
+	right: 0px;
+	background-color: yellow;
+}
+
+#leftbar{
+	width: 100px;
+	height: 650px;
+	background-color: lime;
+	float: left;
+}
+
+#signin{
+	background-color: red;
+	width: 150px;
+	height: 40px;
+	float: right;
+	position: relative;
+	top: 110px;
+}
+
+#main{
+	width: 500px;
+	height: 650px;
+	background-color: red;
+	float: left;
+}
+
+#column2{
+	background-color: black;
+	float: left;
+	width: 250px;
+	height: 650px;
+}
+
+#column1{
+	background-color: maroon;
+	float: right;
+	width: 250px;
+	height: 650px;
+}
+
+#rightbar{
+	background-color: purple;
+	width: 180px;
+	height: 630px;
+	float: right;
+	margin: 10px;
+
+}
+
+#content23{
+	background-color: fuchsia;
+	height: 240px;
+	width: 250px;
+	position: relative;
+	bottom: 370px;
+}
+
+#content21{
+	background-color:blue;
+	height: 160px;
+	width: 250px;
+	position: relative;
+	top: 260px;
+}
+
+#content22{
+	background-color: silver;
+	height: 230px;
+	width: 250px;
+	position: relative;
+	top: 260px;
+}
+
+#content11{
+	background-color: green;
+	width: 250px;
+	height: 180px;
+	position: relative;
+
+}
+
+#content12{
+	background-color: lime;
+	width: 125px;
+	height: 220px;
+	position: relative;
+	float: left;
+}
+
+#content13{
+	background-color:orange;
+	width: 125px;
+	height:310px;
+	position: relative;
+	float: right;
+
+}
+
+#content14{
+	background-color: olive;
+	width: 125px;
+	height: 150px;
+	position: relative;
+	float: left;
+
+}
+
+
+
+#content15{
+	bacground-color: yellow;
+	width: 125px;
+	height: 160px;
+	position: relative;
+	float:right;
+
+}
+
+#content16{
+	background-color: red;
+	width: 125px;
+	height: 100px;
+	position: relative;
+	float: left;
+
+}
+
+

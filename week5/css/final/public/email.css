@@ -1,0 +1,248 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+#blank-email {
+	visibility: hidden;
+}
+
+
+#header {
+	background-color: navy;
+	width: 1000px;
+	height: 150px;
+	position: relative;
+}
+
+#compose {
+	background-color: black;
+	width: 150px;
+	height: 40px;
+}
+
+#compose p{
+	text-align: center;
+	position:relative;
+	top: 10px;
+}
+
+#logo {
+	width: 150px;
+	height: 150px;
+	float: left;
+	position: relative;
+	background-image: url("dwyerlogo.gif");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#search-box {
+	background-color: blue;
+	width: 500px;
+	height: 25px;
+	float:left;
+	position: relative;
+	top: 12px;
+	left: 50px;
+}
+
+#user-profile{
+	width: 250px;
+	height: 30px;
+	background-color: red;
+	position:relative;
+	float:right;
+	top: 10px;
+}
+
+#sidebar{
+	width: 150px;
+	height: 700px;
+	background-color: lime;
+	float: left;
+}
+
+#main-labels{
+	background-color: green;
+	padding-left: 20px;
+}
+
+#main-labels li {
+	font-size: 120%; 
+	display: block;
+
+}
+
+#personal-labels{
+	background-color: fuchsia;
+	padding-left: 20px;
+}
+
+#personal-labels li{
+	font-size: 110%;
+	display: block;
+}
+
+#recent-conversations{
+	background-color: silver;
+	padding-left: 20px;
+}
+
+#recent-conversations li{
+	display: block;
+}
+
+#email{
+	background-color: navy;
+	width: 1000px;
+	height: 750px;
+	position: relative;
+
+}
+
+#main{
+	width: 850px;
+	height: 670px;
+	background-color: red;
+	position: relative;
+	float:left;
+}
+
+#email-actions{
+	width: 807px;
+	height: 20px;
+	background-color: silver;
+	position: relative;
+	float: left;
+	top: -16px;
+}
+
+#email-actions li{
+	display: block;
+}
+
+#select-all{
+	position: relative;
+	right: 30px;
+}
+
+#check-emails{
+	position: relative;
+	left: 50px;
+	top: -18px;
+	cursor: hand;
+}
+
+#more{
+	position: relative;
+	left: 165px;
+	top: -36px;
+}
+
+
+#emails{
+	width: 810px;
+	height: 647px;
+	background-color: gray;
+	position: relative;
+	top: -31px;
+	overflow: auto;
+	text-indent: 10px;
+}
+
+#emails li{
+	height: 17px;
+	border-color: red;
+	display: block;
+	font-family: monospace;
+
+}
+
+
+.checked{
+	width: 16px;
+	height: 16px;
+	background-color: aqua;
+	position: relative;
+	right: 43px;
+	top: -2px;
+}
+
+.starred{
+	width: 16px;
+	height: 16px;
+	background-color: blue;
+	position: relative;
+	right: 27px;
+	top: -18px;
+}
+
+.from{
+	width: 220px;
+	height: 16px;
+	background-color: white;
+	color: black;
+	position: relative;
+	top: -34px;
+	left: -11px;
+}
+
+
+.subject{
+	width: 225px;
+	height: 16px;
+	background-color: aqua;
+	color: black;
+	overflow: auto;
+	position: relative;
+	left: 210px;
+	top: -50px;
+}
+
+.preview{
+	width: 371px;
+	height: 16px;
+	background-color: white;
+	color: black;
+	overflow: auto;
+	position: relative;
+	left: 436px;
+	top: -66px;
+}
+
+#footer{
+	width: 850px;
+	height: 30px;
+	background-color: orange;
+	position: relative;
+	float: left;
+	color: navy;
+}
+
+#usage{
+	position: relative;
+	left: 10px;
+	top: 8px;
+}
+
+#brand{
+	position: relative;
+	left: 180px;
+	bottom: 10px;
+}
+
+#terms{
+	position: relative;
+	left: 310px;
+	bottom: 28px;
+}
+
+#last-activity{
+	position: relative;
+	left: 610px;
+	bottom: 46px;
+}
+
+
+

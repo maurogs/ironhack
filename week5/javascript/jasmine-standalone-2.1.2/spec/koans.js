@@ -173,7 +173,7 @@ describe("the JavaScript language", function(){
   });
 
 
-/*
+
   describe("considers functions as first class citizens", function(){
   
     it("can declare named functions", function(){
@@ -181,17 +181,24 @@ describe("the JavaScript language", function(){
             return 'some example';
         }
 
-        //expect(example()).toEqual();
+        expect(example()).toEqual('some example');
     });
 
+
+
+    //TOBE CON VALORES ES LO MISMO QUE TOEQUAL 
+    //COMPARA POR REFERENCIA, LO QUE OCUPA EL MISMO 
+    //ESPACIO DE MEMORIA (OBJETOS, ARRAYS, FUNCIONES,VALORES)
     it("can declare anonymous functions", function(){
         var someVar = function(a, b){
             return a + b;
         };
 
-        //expect(typeof(someVar)).toBe();
-        //expect(someVar(1,1)).toBe();
+        expect(typeof(someVar)).toBe('function');
+        expect(someVar(1,1)).toBe(2);
     });
+
+    
 
     it("may return anything", function(){
         function example(arg){
@@ -200,40 +207,51 @@ describe("the JavaScript language", function(){
  
         var result = example(2);
 
-        //expect(result[1]).toEqual();
+        expect(result[1]).toEqual(4);
     });
+
+    
 
     it("may return arrays that contains functions and so on", function(){
         function example(){
-           // write the missing code here
+
+           // return [function(arg){return [1, arg * 10, 3];},1,2];
+           return [function(arg){return [1, arg * 10];}];
         }
         
-        //expect(example()[0](1)[1]).toEqual(10);
+        expect(example()[0](1)[1]).toEqual(10);
     });
+
+
 
     it("doesn't care about the declaration order when they are named", function(){
         function exampleA(){
             return exampleB(1);
         }
         
-        //expect(exampleA()).toEqual();
+        expect(exampleA()).toEqual(1);
         
         function exampleB(arg1){
             return arg1;
         }
     });
 
+        
+    //CUANDO DECLARAMOS FUNCIONES ANÓNIMAS MEDIANTE VARIABLES
+    //EL SCOPE (ALCANCE) ES DIFERENTE -> undefined is not a function
+
     it("matters, the declaration order when they are anonymous", function(){
         var exampleA = function(){
             return exampleB(1);
         };
         
-        //expect(exampleA()).toEqual(1);
-        
         var exampleB = function(arg1){
             return arg1;
         };
+
+        expect(exampleA()).toEqual(1);
     });
+
 
     it("can use optional parameters", function(){
         function example(a, b, c){
@@ -242,17 +260,20 @@ describe("the JavaScript language", function(){
             }
             return a + b;
         }
-        ///expect(example(1,1,1)).toBe();
-        ///expect(example(1,1)).toBe();
+        expect(example(1,1,1)).toBe(3);
+        expect(example(1,1)).toBe(2);
     });
+
 
     it("anonymous functions are anonymous", function(){
          var x = function z(){
             return 1;
          };
-         //expect(typeof(z)).toEqual();
-         //expect(x()).toEqual();
+         expect(typeof(z)).toEqual('undefined');
+         expect(x()).toEqual(1);
     });
+
+    /*
 
     it("can create closures with free variables", function(){
         function external(){
@@ -816,6 +837,6 @@ describe("the JavaScript language", function(){
 
             //expect(eventWasFired).toBeFalsy();
         }); 
-      });
-  });  */
+      }); */
+  });  
 });

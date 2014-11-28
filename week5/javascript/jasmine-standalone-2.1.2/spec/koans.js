@@ -1,5 +1,58 @@
 context = describe;
 
+
+//EJEMPLOS CON OBJETOS
+describe("common patterns", function(){
+   it("revealing pattern", function(){
+        
+        var myNamespace = {};        
+
+        //OJO CON LOS PARENTESIS ALREDEDOR DE LA FUNCION!!!
+        (function(ns){
+           var counter = 0;
+           function privateMethod(){
+               /*...*/
+           }
+           ns.currentCount = function(){
+               return counter;
+           };
+           ns.increment = function(){
+               ++counter;
+           };
+           ns.decrement = function(){
+               --counter;
+           };
+           ns = {}; //este objeto no influye en nada
+        }(myNamespace));        
+
+        myNamespace.increment();
+        myNamespace.increment();
+        myNamespace.decrement();
+        expect(myNamespace.currentCount()).toBe(1);
+   });
+
+    it("considers objects as references",function(){
+        function f(arg){
+            arg.x = 1;
+        }
+        var obj = {x: 0};
+        f(obj);
+        expect(obj.x).toBe(1);
+
+
+
+        function g(arg){
+            arg = {x: 5};
+        }
+        var obj = {x: 0};
+        g(obj);
+        expect(obj.x).toBe(0);
+    });
+}); 
+
+
+
+
 describe("the JavaScript language", function(){
 
   describe("has different types and operators that", function(){
@@ -212,15 +265,15 @@ describe("the JavaScript language", function(){
 
     
 
-    it("may return arrays that contains functions and so on", function(){
-        function example(){
+    // it("may return arrays that contains functions and so on", function(){
+    //     function example(){
 
-           // return [function(arg){return [1, arg * 10, 3];},1,2];
-           return [function(arg){return [1, arg * 10];}];
-        }
+    //        // return [function(arg){return [1, arg * 10, 3];},1,2];
+    //        return [function(arg){return [1, arg * 10];}];
+    //     }
         
-        expect(example()[0](1)[1]).toEqual(10);
-    });
+    //     expect(example()[0](1)[1]).toEqual(10);
+    // });
 
 
 
@@ -352,8 +405,7 @@ describe("the JavaScript language", function(){
     });
 
 
-    /*
-
+    
     it("can create closures with free variables", function(){
         function external(){
           var a = 1;
@@ -364,8 +416,9 @@ describe("the JavaScript language", function(){
           return internal();
         }
 
-        //expect(external()).toBe();
+        expect(external()).toBe(2);
     });
+
 
     it("can create closures with several free variables", function(){
         function external(){
@@ -377,8 +430,11 @@ describe("the JavaScript language", function(){
           }
         }
 
-        //expect(external()).toBe(6);
+        expect(external()).toBe(undefined);
     });
+
+
+
 
     it("defines a pure function when there are no free variables", function(){
         function external(){
@@ -391,18 +447,28 @@ describe("the JavaScript language", function(){
           return internal(4,4);
         }
 
-        //expect(external()).toBe();
+        expect(external()).toBe(9);
     });
 
-    it("may return arrays that contains closures and so on", function(){
+
+
+    
+
+     it("may return arrays that contains closures and so on", function(){
+        
         function example(){
-           // write the missing code here
+         return [function f(arg){
+                        return [1, arg + 9];
+                    }];
+
         }
         
-        //expect(example()[0](1)[1]).toEqual(10);
-        //expect(example()[0](2)[1]).toEqual(11);
-        //expect(example()[0](3)[1]).toEqual(12);
-    });
+        expect(example()[0](1)[1]).toEqual(10);
+        expect(example()[0](2)[1]).toEqual(11);
+        expect(example()[0](3)[1]).toEqual(12);
+     });
+
+
 
     it("passes primitive types as values (a copy) to functions", function(){
         function example(arg){
@@ -414,14 +480,17 @@ describe("the JavaScript language", function(){
         var z = true;
 
         example(x)
-        //expect(x).toEqual();
+        expect(x).toEqual(1);
         
         example(y);
-        //expect(y).toEqual();
+        expect(y).toEqual("example");
 
         example(z);
-        //expect(z).toEqual();
+        expect(z).toEqual(true);
     });
+
+
+
 
     it("passes arrays by reference", function(){
         function example(arg){
@@ -431,8 +500,9 @@ describe("the JavaScript language", function(){
         var x = [1,2,3];
 
         example(x);
-      //expect(x).toEqual();
+        expect(x).toEqual([100,2,3]);
     });
+
 
     it("passes objects by reference", function(){
         function example(arg){
@@ -442,21 +512,23 @@ describe("the JavaScript language", function(){
         var x = {property: 'cool!'};
 
         example(x);
-      //expect(x).toEqual();
+        expect(x).toEqual({property: 'test'});
     });
 
-    it("may return a function as the result of invoking a function", function(){
-        function add(a, b){
-           return a + b;
-        }
-        function example(){
-           return add;
-        }
+    // it("may return a function as the result of invoking a function", function(){
+    //     function add(a, b){
+    //        return a + b;
+    //     }
+    //     function example(){
+    //        return add;
+    //     }
 
-        //expect(example()(1,2)).toEqual();
-        var f = example();
-        //expect(f(2,2)).toEqual();
-    });
+    //     expect(example()(1,2)).toEqual();
+    //     var f = example();
+    //     //expect(f(2,2)).toEqual();
+    // });
+
+/*
 
     it("can return closures as a function result", function(){
         function plus(amount){

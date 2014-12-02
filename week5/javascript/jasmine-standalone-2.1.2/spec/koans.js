@@ -265,15 +265,15 @@ describe("the JavaScript language", function(){
 
     
 
-    // it("may return arrays that contains functions and so on", function(){
-    //     function example(){
+    it("may return arrays that contains functions and so on", function(){
+        function example(){
 
-    //        // return [function(arg){return [1, arg * 10, 3];},1,2];
-    //        return [function(arg){return [1, arg * 10];}];
-    //     }
+           // return [function(arg){return [1, arg * 10, 3];},1,2];
+           return [function(arg){return [1, arg * 10];}];
+        }
         
-    //     expect(example()[0](1)[1]).toEqual(10);
-    // });
+        expect(example()[0](1)[1]).toEqual(10);
+    });
 
 
 
@@ -515,20 +515,19 @@ describe("the JavaScript language", function(){
         expect(x).toEqual({property: 'test'});
     });
 
-    // it("may return a function as the result of invoking a function", function(){
-    //     function add(a, b){
-    //        return a + b;
-    //     }
-    //     function example(){
-    //        return add;
-    //     }
+    it("may return a function as the result of invoking a function", function(){
+        function add(a, b){
+           return a + b;
+        }
+        function example(){
+           return add;
+        }
 
-    //     expect(example()(1,2)).toEqual();
-    //     var f = example();
-    //     //expect(f(2,2)).toEqual();
-    // });
+        expect(example()(1,2)).toEqual(3);
+        var f = example();
+        expect(f(2,2)).toEqual(4);
+    });
 
-/*
 
     it("can return closures as a function result", function(){
         function plus(amount){
@@ -538,9 +537,9 @@ describe("the JavaScript language", function(){
         }
 
         var f = plus(5);
-        
-        //expect(f(3)).toBe();
+        expect(f(3)).toBe(8);
     });
+
 
     it("can have functions that receive other functions as arguments", function(){
         function add(a,b){
@@ -553,6 +552,7 @@ describe("the JavaScript language", function(){
         //expect(example(add)).toEqual();
     });
 
+/*
     it("may have functions as the input and the output", function(){
         function plus(originalFunction){
           return function(arg1){ 

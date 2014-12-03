@@ -33,9 +33,9 @@
             <%= c.person.complete_name %> (<%= c.role.titleize %>)
 
             <div id="voting_cast_system">
-            <%= link_to "I like it!", person_thumbs_up_path(c.person.id) %>
+            <%= link_to "I like it!", person_thumbs_up_path(c.person.id), method: :post %>
             |
-            <%= link_to "Too old for me.", person_thumbs_down_path(c.person.id) %>
+            <%= link_to "Too old for me.", person_thumbs_down_path(c.person.id), method: :post %>
             </div>
 
                 <% if @movie.votes.present? %>
@@ -57,9 +57,9 @@
 
 <% if policy(Vote.new).create? %>
 <div id="voting_system">
-  <%= link_to "I like it!", movie_thumbs_up_path(@movie) %>
+  <%= link_to "I like it!", movie_thumbs_up_path(@movie), method: :post %>
   |
-  <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie) %>
+  <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie), method: :post %>
 </div>
 <% end %>
 

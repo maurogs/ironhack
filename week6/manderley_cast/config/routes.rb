@@ -4,8 +4,8 @@ Manderley::Application.routes.draw do
     resources :comments, shallow: true
 
 
-    get 'up', to: 'movies#up', as: :thumbs_up
-    get 'down', to: 'movies#down', as: :thumbs_down
+    post 'up', to: 'movies#up', as: :thumbs_up
+    post 'down', to: 'movies#down', as: :thumbs_down
 
 
     get "cast/new", to: 'movies#new_cast', as: :new_cast
@@ -15,8 +15,8 @@ Manderley::Application.routes.draw do
 
   resources :people do
     
-    get 'up', to: 'people#up', as: :thumbs_up
-    get 'down', to: 'people#down', as: :thumbs_down
+    post 'up', to: 'people#up', as: :thumbs_up
+    post 'down', to: 'people#down', as: :thumbs_down
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

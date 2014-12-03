@@ -1,6 +1,18 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy, :new_cast, :create_cast]
 
+  def up
+    vote = Vote.user(current_user).movie(@movie).find_or_initialize_by({})
+
+    vote.liked
+    vote.save
+    redirect_to @movie
+  end
+
+  def down
+
+  end
+
   # GET /movies
   # GET /movies.json
   def index

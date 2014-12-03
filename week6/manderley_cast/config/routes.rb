@@ -13,8 +13,11 @@ Manderley::Application.routes.draw do
   end
 
 
-  resources :people, shallow: true
-
+  resources :people do
+    
+    get 'up', to: 'people#up', as: :thumbs_up
+    get 'down', to: 'people#down', as: :thumbs_down
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

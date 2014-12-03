@@ -1,6 +1,24 @@
 class PeopleController < ApplicationController
   before_action :set_person, except: [:create, :new, :index]
 
+  def up
+    vote = VoteCast.user(current_user).person(@person).find_or_initialize_by({})
+    @movie = Movie.first
+    vote.liked
+    authorize vote, :create?
+    vote.save
+    redirect_to movie_path(@movie)
+  end
+
+  def down
+    vote = VoteCast.user(current_user).person(@person).find_or_initialize_by({})
+    @movie = Movie.first
+    vote.disliked
+    authorize vote, :create?
+    vote.save
+    redirect_to movie_path(@movie)
+  end
+
   def index
     @people = Person.all
   end
@@ -46,7 +64,7 @@ class PeopleController < ApplicationController
     private
   # Use callbacks to share common setup or constraints between actions.
   def set_person
-    @person = Person.find(params[:id])
+    @person = Person.find(params[:id] || params[:person_id])
   end
  
   # Never trust parameters from the scary internet, only allow the white list through.

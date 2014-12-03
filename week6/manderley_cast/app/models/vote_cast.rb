@@ -1,13 +1,14 @@
-class Vote < ActiveRecord::Base
-  belongs_to :movie
+class VoteCast < ActiveRecord::Base
+  belongs_to :person
   belongs_to :user
 
+  
 
   scope :likes, ->() { where amount: 1}
   scope :dislikes, ->() { where amount: -1}
   scope :user, ->(user) { where user: user}
-  scope :movie, ->(movie) { where movie: movie}
-
+  scope :person, ->(person) { where person: person}
+  
   def liked
   	self.amount = 1
   end
@@ -25,5 +26,4 @@ class Vote < ActiveRecord::Base
   	disliked
   	save
   end
-
 end

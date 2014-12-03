@@ -29,10 +29,26 @@
     <ul>
       <% @movie.casts.each do |c| %>
         <li>
-          <%= c.person.complete_name %>
-          (
-          <%= c.role.titleize %>
-          )
+          <% if c.person %>
+            <%= c.person.complete_name %> (<%= c.role.titleize %>)
+
+            <div id="voting_cast_system">
+            <%= link_to "I like it!", person_thumbs_up_path(c.person.id) %>
+            |
+            <%= link_to "Too old for me.", person_thumbs_down_path(c.person.id) %>
+            </div>
+
+                <% if @movie.votes.present? %>
+                  <div id="votes">
+                    <p>
+                      <%= c.person.vote_cast.dislikes.size %> out of <%= c.person.vote_cast.size %>
+                      think this person is old.
+                    </p>
+                  </div>
+                <% end %>
+
+
+          <% end %>
         </li>
       <% end %>
     </ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203082358) do
+ActiveRecord::Schema.define(version: 20141203111310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,19 @@ ActiveRecord::Schema.define(version: 20141203082358) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
+
+  create_table "vote_casts", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vote_casts", ["amount"], name: "index_vote_casts_on_amount", using: :btree
+  add_index "vote_casts", ["person_id", "user_id"], name: "index_vote_casts_on_person_id_and_user_id", unique: true, using: :btree
+  add_index "vote_casts", ["person_id"], name: "index_vote_casts_on_person_id", using: :btree
+  add_index "vote_casts", ["user_id"], name: "index_vote_casts_on_user_id", using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "movie_id"

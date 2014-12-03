@@ -39,6 +39,29 @@
   <% end %>
 </p>
 
+<% if policy(Vote.new).create? %>
+<div id="voting_system">
+  <%= link_to "I like it!", movie_thumbs_up_path(@movie) %>
+  |
+  <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie) %>
+</div>
+<% end %>
+
+<% if @movie.votes.present? %>
+  <div id="votes">
+  <p>
+    <%= @movie.likes.size %> out of <%= @movie.votes.size %>
+   people liked this film.
+   </p>
+
+     <p>
+    <%= @movie.dislikes.size %> out of <%= @movie.votes.size %>
+    people didnt liked this film.
+   </p>
+  </div>
+<% end %>
+
+
 
 <h4>Comments</h4>
 <%= render @movie.comments %>

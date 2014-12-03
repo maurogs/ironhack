@@ -2,13 +2,13 @@ class Vote < ActiveRecord::Base
   belongs_to :movie
   belongs_to :user
 
-  scope :likes, ->() { where points: 1}
-  scope :dislikes, ->() { where points: -1}
+  scope :likes, ->() { where amount: 1}
+  scope :dislikes, ->() { where amount: -1}
   scope :user, ->(user) { where user: user}
-  scope :movie, ->(movie) { where movie: user}
+  scope :movie, ->(movie) { where movie: movie}
 
   def liked
-  	points = 1
+  	self.amount = 1
   end
 
 
@@ -18,7 +18,7 @@ class Vote < ActiveRecord::Base
   end
 
   def disliked
-  	points = -1
+  	self.amount = -1
   end
 
   def disliked!

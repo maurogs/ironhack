@@ -1,4 +1,10 @@
 Manderley::Application.routes.draw do
+  get 'kiss/object'
+
+  get 'kiss/ajax'
+
+  post 'kiss/echo'
+
   devise_for :users
   resources :movies do
     resources :comments, shallow: true

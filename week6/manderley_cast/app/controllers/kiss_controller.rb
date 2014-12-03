@@ -3,11 +3,7 @@ class KissController < ApplicationController
   end
 
   def ajax
-  	sleep 2
-  	comment = Comment.first.attributes
-  	comment["movie"] = Movie.find(comment["movie_id"]).attributes.except("created_at", "updated_at")
-  	comment.except!("created_at", "updated_at")
-  	render json: comment
+  	render json: Comment.first
   end
 
   def echo

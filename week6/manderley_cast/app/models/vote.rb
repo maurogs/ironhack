@@ -17,6 +17,7 @@ class Vote < ActiveRecord::Base
   	save
   end
 
+
   def disliked
   	self.amount = -1
   end
@@ -24,6 +25,16 @@ class Vote < ActiveRecord::Base
   def disliked!
   	disliked
   	save
+  end
+
+  #Estos 2 metodos son para tests
+
+  def liked?
+    amount == 1
+  end
+
+  def disliked?
+    amount == -1
   end
 
 end

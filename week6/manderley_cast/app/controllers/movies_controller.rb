@@ -7,16 +7,33 @@ class MoviesController < ApplicationController
     vote.liked
     authorize vote, :create?
     vote.save
-    redirect_to movie_path(@movie)
+        respond_to do |format|
+      format.html do
+        if request.xhr?
+          render partial: 'ratings', layout: false
+        else
+          redirect_to movie_path(@movie)
+        end
+      end
+    end
   end
 
   def down
     vote = Vote.user(current_user).movie(@movie).find_or_initialize_by({})
 
     vote.disliked
-    authorize vote, :create?
+    authorize vote, :create? 
     vote.save
-    redirect_to movie_path(@movie)
+
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render partial: 'ratings', layout: false
+        else
+          redirect_to movie_path(@movie)
+        end
+      end
+    end
   end
 
   # GET /movies

@@ -24,6 +24,13 @@ Manderley::Application.routes.draw do
     post 'up', to: 'people#up', as: :thumbs_up
     post 'down', to: 'people#down', as: :thumbs_down
   end
+
+  namespace :api do 
+    resources :users, only: [:index, :show]
+    resources :movies, only: [:index, :show]
+    resources :comments, only: [:index, :show]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

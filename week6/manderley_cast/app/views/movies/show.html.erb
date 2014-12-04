@@ -39,7 +39,7 @@
             </div>
 
                 <% if @movie.votes.present? %>
-                  <div id="votes">
+                  <div id="votes_cast">
                     <p>
                       <%= c.person.vote_cast.dislikes.size %> out of <%= c.person.vote_cast.size %>
                       think this person is old.
@@ -55,27 +55,15 @@
   <% end %>
 </p>
 
-<% if policy(Vote.new).create? %>
-<div id="voting_system">
-  <%= link_to "I like it!", movie_thumbs_up_path(@movie), method: :post %>
+<% if policy(Vote.user(current_user).movie(@movie).find_or_initialize_by({})).create? %>
+<div id="voting_system" class="js-rating-container">
+  <%= link_to "I like it!", movie_thumbs_up_path(@movie), class: 'js-rate' %>
   |
-  <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie), method: :post %>
+  <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie), class: 'js-rate' %>
 </div>
 <% end %>
 
-<% if @movie.votes.present? %>
-  <div id="votes">
-  <p>
-    <%= @movie.likes.size %> out of <%= @movie.votes.size %>
-   people liked this film.
-   </p>
 
-     <p>
-    <%= @movie.dislikes.size %> out of <%= @movie.votes.size %>
-    people didnt liked this film.
-   </p>
-  </div>
-<% end %>
 
 
 

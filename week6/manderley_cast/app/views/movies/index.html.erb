@@ -1,25 +1,25 @@
 <% if user_signed_in? %>
 
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, 
-                                                   data: { confirm: 'Are you sure?' } %>
+<%= link_to t('sign_out'), destroy_user_session_path, method: :delete, 
+                                                   data: { confirm: t('alert_sure') } %>
 
 <% else %>
 
-<%= link_to 'Sign In', new_user_session_path %>
+<%= link_to t('sign_in'), new_user_session_path %>
 
 <% end %>
 
 
 
-<h1>Listing movies</h1>
+<h1><%= t('listing_movies') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Year</th>
-      <th>Duration</th>
-      <th>Synopsis</th>
+      <th> <%= t('title') %> </th>
+      <th> <%= t('year') %> </th>
+      <th> <%= t('duration') %> </th>
+      <th> <%= t('synopsis') %> </th>
       <th></th>
       <th></th>
       <th></th>
@@ -32,12 +32,12 @@
         <td><%= movie.year %></td>
         <td><%= movie.duration %></td>
         <td><%= movie.synopsis %></td>
-        <td><%= link_to 'Show', movie %></td>
+        <td><%= link_to t('link_show'), movie %></td>
         <% if policy(movie).update? %>
-          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to t('link_edit'), edit_movie_path(movie) %></td>
         <% end %>
         <% if policy(movie).destroy? %>
-         <td><%= link_to 'Destroy', movie, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to t('link_destroy'), movie, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       <% end %>
   </tbody>
@@ -46,7 +46,7 @@
 <br>
 
 <% if policy(Movie.new).create? %>
-  <%= link_to 'New Movie', new_movie_path %>
+  <%= link_to t('link_new_movie'), new_movie_path %>
 <% end %>
 
 <br>

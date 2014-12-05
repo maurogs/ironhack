@@ -6,6 +6,9 @@ Manderley::Application.routes.draw do
   post 'kiss/echo'
 
   devise_for :users
+  
+  scope '(:locale)' do
+
   resources :movies do
     resources :comments, shallow: true
 
@@ -30,6 +33,9 @@ Manderley::Application.routes.draw do
     resources :movies, only: [:index, :show]
     resources :comments, only: [:index, :show]
   end
+
+  resources :people, shallow: true
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

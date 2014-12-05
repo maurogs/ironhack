@@ -18,6 +18,54 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
+{
+en: {
+  hello: "Hello world",
 
-en:
-  hello: "Hello world"
+  sign_in: "Sign_in",
+
+  sign_out: "Sign_out",
+
+  listing_movies: "Listing movies",
+
+  title: "Title",
+
+  year: "Year",
+
+  duration: "Duration",
+
+  synopsis: "Synopsis",
+
+  link_show: "Show",
+
+  link_edit: "Edit",
+
+  link_destroy: "Destroy",
+
+  link_new_movie: "New Movie",
+
+  alert_sure : "Are you sure?",
+
+  activerecord: {
+  	models: {
+  		movie: "The Pinicula"
+  		},
+  	attributes: {
+  		movie: {
+  			title: "The Titulón",
+  			year: "The 2001",
+  			synopsis: "The saloppe"
+     	},
+     	comment: {
+     		body: "This movie is the shit"
+     	},
+     	user: {
+     		email: "email@email.com",
+     		username: "The Username",
+     		password: "12345678"	
+     	}
+     }
+  	}
+   }
+  }
+

@@ -11,7 +11,19 @@ class ApplicationController < ActionController::Base
   end
 
 
+  before_action :set_locale
+
   protected
+
+  def set_locale
+      I18n.locale = params[:locale]
+  end
+
+  def default_url_options options = {}
+      options[:locale] ||= I18n.locale
+      options
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :email
   end

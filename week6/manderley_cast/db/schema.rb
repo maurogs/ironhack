@@ -54,13 +54,6 @@ ActiveRecord::Schema.define(version: 20141205094013) do
     t.datetime "updated_at"
   end
 
-  create_table "projects", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -78,7 +71,7 @@ ActiveRecord::Schema.define(version: 20141205094013) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.integer  "role"
+    t.integer  "role",                   default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

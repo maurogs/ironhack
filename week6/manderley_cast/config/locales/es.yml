@@ -1,0 +1,53 @@
+{
+es: {
+  hello: "Hello whore",
+
+  sign_in: "Conectarse",
+
+  sign_out: "Desconectarse",
+
+  listing_movies: "Lista de Peliculas",
+
+  title: "Titulo",
+
+  year: "Año",
+
+  duration: "Duración",
+
+  synopsis: "Resumen",
+
+  link_show: "Mostrar",
+
+  link_edit: "Editar",
+
+  link_destroy: "Eliminar",
+
+  link_new_movie: "Añadir Pelicula",
+
+  alert_sure : "Estas seguro?",
+
+
+  activerecord: {
+  	models: {
+  		movie: "Pinicula"
+  		},
+  	attributes: {
+  		movie: {
+  			title: "Titulón",
+  			year: "2001",
+  			synopsis: "saloppe"
+     	},
+     	comment: {
+     		body: "Esta peli es guay"
+     	},
+     	user: {
+     		email: "email@email.es",
+     		username: "El usuario",
+     		password: "El password"	
+     	}
+     }
+  	}
+   }
+  }
+ 
+

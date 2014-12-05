@@ -20,7 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 {
 en: {
-  hello: "Hello world",
+  hello_html: "<strong>Hello, good whore </strong>",
+
+  hello_with_user: "Hi, %{username}. ",
+
+  hello_without_user: "Hi, jason",
 
   sign_in: "Sign_in",
 
@@ -35,6 +39,26 @@ en: {
   duration: "Duration",
 
   synopsis: "Synopsis",
+
+  people: "People",
+
+  like: "I like him!",
+
+  dislike: "I dont like him.",
+
+  like_cast: "I love him!",
+
+  dislike_cast: "Too old for me.",
+
+  out_of: "out of",
+
+  think_cast: "think this person is old.",
+
+  think_like: "people liked this film.",
+
+  think_dislike: "people didn't like this film at all.",
+
+  button_form: "Show Form",
 
   link_show: "Show",
 

@@ -2,6 +2,10 @@
 es: {
   hello: "Hello whore",
 
+  hello_with_user: "Hola, %{username}. ",
+
+  hello_without_user: "Hola, majo",
+
   sign_in: "Conectarse",
 
   sign_out: "Desconectarse",
@@ -15,6 +19,26 @@ es: {
   duration: "Duración",
 
   synopsis: "Resumen",
+
+  people: "Personas",
+
+  like: "Me gusta!",
+
+  dislike: "No me gusta.",
+
+  like_cast: "Me encanta!",
+
+  dislike_cast: "Demasiado viejo.",
+
+  out_of: "de",
+
+  think_cast: "piensan que este es viejo.",
+
+  think_like: "personas le han gustado esta pelicula.",
+
+  think_dislike: "personas no le han gustado esta pelicula.",
+
+  button_form: "Mostrar Formulario",
 
   link_show: "Mostrar",
 

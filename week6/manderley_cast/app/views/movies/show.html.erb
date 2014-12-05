@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('title') %>:</strong>
   <%= @movie.title %>
 </p>
 
 <p>
-  <strong>Year:</strong>
+  <strong><%= t('year') %>:</strong>
   <%= @movie.year %>
 </p>
 
 <p>
-  <strong>Duration:</strong>
+  <strong><%= t('duration') %>:</strong>
   <%= @movie.duration %>
 </p>
 
 <p>
-  <strong>Synopsis:</strong>
+  <strong><%= t('synopsis') %>:</strong>
   <%= @movie.synopsis %>
 </p>
 
@@ -25,7 +25,7 @@
   <% if @movie.people.empty? %>
   <strong> No people in here</strong>
   <% else %>
-    <strong>People:</strong>
+    <strong><%= t('people') %>:</strong>
     <ul>
       <% @movie.casts.each do |c| %>
         <li>
@@ -33,16 +33,16 @@
             <%= c.person.complete_name %> (<%= c.role.titleize %>)
 
             <div id="voting_cast_system" >
-            <%= link_to "I like it!", person_thumbs_up_path(c.person.id), method: :post %>
+            <%= link_to t('like_cast') %>, person_thumbs_up_path(c.person.id), method: :post %>
             |
-            <%= link_to "Too old for me.", person_thumbs_down_path(c.person.id), method: :post %>
+            <%= link_to t('dislike_cast'), person_thumbs_down_path(c.person.id), method: :post %>
             </div>
 
                 <% if @movie.votes.present? %>
                   <div id="votes_cast">
                     <p>
-                      <%= c.person.vote_cast.dislikes.size %> out of <%= c.person.vote_cast.size %>
-                      think this person is old.
+                      <%= c.person.vote_cast.dislikes.size %> <%= t('out_of') %> <%= c.person.vote_cast.size %>
+                      <%= t('think_cast') %>
                     </p>
                   </div>
                 <% end %>
@@ -57,9 +57,9 @@
 
 <% if policy(Vote.user(current_user).movie(@movie).find_or_initialize_by({})).create? %>
 <div id="voting_system" class="js-rating-container">
-  <%= link_to "I like it!", movie_thumbs_up_path(@movie), class: 'js-rate' %>
+  <%= link_to t('like'), movie_thumbs_up_path(@movie), class: 'js-rate' %>
   |
-  <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie), class: 'js-rate' %>
+  <%= link_to t('dislike'), movie_thumbs_down_path(@movie), class: 'js-rate' %>
 </div>
 <% end %>
 
@@ -72,7 +72,7 @@
 
 <% if policy(@movie.comments.build).create? %>
 <div>
-  <button id='comment_form_button'>Show Form</button>
+  <button id='comment_form_button'><%= t('button_form') %></button>
   <div id='comment_form'>
     <h4>Add a comment:</h4>
     <%= render 'comments/form' %>  

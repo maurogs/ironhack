@@ -1,0 +1,8 @@
+                <% if @movie.votes.present? %>
+                  <div id="votes_cast">
+                    <p>
+                      <%= c.person.vote_cast.dislikes.size %> out of <%= c.person.vote_cast.size %>
+                      think this person is old.
+                    </p>
+                  </div>
+                <% end %>

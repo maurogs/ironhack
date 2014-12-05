@@ -32,7 +32,7 @@
           <% if c.person %>
             <%= c.person.complete_name %> (<%= c.role.titleize %>)
 
-            <div id="voting_cast_system">
+            <div id="voting_cast_system" >
             <%= link_to "I like it!", person_thumbs_up_path(c.person.id), method: :post %>
             |
             <%= link_to "Too old for me.", person_thumbs_down_path(c.person.id), method: :post %>

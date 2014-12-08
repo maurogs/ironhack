@@ -9,33 +9,33 @@ Manderley::Application.routes.draw do
   
   scope '(:locale)' do
 
-  resources :movies do
-    resources :comments, shallow: true
+    resources :movies do
+      resources :comments, shallow: true
 
 
-    post 'up', to: 'movies#up', as: :thumbs_up
-    post 'down', to: 'movies#down', as: :thumbs_down
+      post 'up', to: 'movies#up', as: :thumbs_up
+      post 'down', to: 'movies#down', as: :thumbs_down
 
 
-    get "cast/new", to: 'movies#new_cast', as: :new_cast
-    post "cast", to: 'movies#create_cast', as: :create_cast
-  end
+      get "cast/new", to: 'movies#new_cast', as: :new_cast
+      post "cast", to: 'movies#create_cast', as: :create_cast
+    end
 
 
-  resources :people do
+    resources :people do
     
-    post 'up', to: 'people#up', as: :thumbs_up
-    post 'down', to: 'people#down', as: :thumbs_down
-  end
+      post 'up', to: 'people#up', as: :thumbs_up
+      post 'down', to: 'people#down', as: :thumbs_down
+    end
 
-  namespace :api do 
-    resources :users, only: [:index, :show]
-    resources :movies, only: [:index, :show]
-    resources :comments, only: [:index, :show]
-  end
+    namespace :api do 
+      resources :users, only: [:index, :show]
+      resources :movies, only: [:index, :show]
+      resources :comments, only: [:index, :show]
+    end
 
-  resources :people, shallow: true
-end
+    resources :people, shallow: true
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

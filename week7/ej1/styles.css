@@ -1,0 +1,48 @@
+body {
+    margin: 0px;
+}
+
+
+#exercice {
+    width: 600px;
+    height: 330px;
+    background-color: grey;
+    position: relative;
+}
+
+
+#picture {
+  background-color: aqua;
+  width: 180px;
+  height: 250px;
+  position: relative;
+  top: 40px;
+  left: 40px;
+}
+
+#name{
+  width: 200px;
+  height: 40px;
+  position: relative;
+  bottom: 210px;
+  left: 270px;
+  background-color: yellow;
+}
+
+#date{
+  width: 200px;
+  height: 40px;
+  left: 270px;
+  bottom: 145px;
+  background-color: lime;
+  position: relative;
+}
+
+#state{
+  background-color: red;
+  width: 200px;
+  height: 40px;
+  left: 270px;
+  position: relative;
+  bottom: 80px;
+}

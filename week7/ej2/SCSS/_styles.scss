@@ -1,0 +1,21 @@
+
+.media {
+            margin: $margin-stack;
+          }
+.media, .bd {
+            overflow:hidden; 
+            _overflow:visible; 
+            zoom:1;
+          }
+
+.media .img {
+            float:left; 
+            margin-right: $margin-stack;
+          }
+.media .img img, .media .imgExt img {
+            display:block;
+          }
+.media .imgExt{
+            float:right; 
+            margin-left: $margin-stack;
+          }

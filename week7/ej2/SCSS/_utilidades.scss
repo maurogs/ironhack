@@ -1,0 +1,34 @@
+.media{
+	margin: $margin_stack;
+	overflow: hidden;
+	zoom:1;
+
+	.img{
+		float:left; 
+        margin-right: $margin_stack;
+
+        img{
+			display: block;
+        }
+	}
+
+
+   	.imgExt{
+
+		float: right;
+		margin-left: $margin_stack;
+	
+		img{
+			display: block;
+
+		}
+   	}
+
+	.bd{
+		overflow: hidden;
+		_overflow: visible; 
+		zoom:1;
+	}
+}
+	
+

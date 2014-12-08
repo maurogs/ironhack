@@ -1,0 +1,17 @@
+@import "variables";
+@import "utilidades";
+// @import "styles";
+
+
+
+@mixin media($margin){
+	margin-left: $margin;
+	margin-right: $margin;
+}
+
+.status{
+	@include media(20px);
+}
+.comment{
+	@include media(20px);
+}

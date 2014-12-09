@@ -1,8 +1,29 @@
-
 .everything{
-	width: 1000px;
+	width: 1320px;
 	margin: 0 auto;
+	display: block;
 }
+
+// @media only screen and (min-width:1200px){
+// 	.everything {width: 1200px}
+// }
+
+// @media only screen and (min-width:768px) and (max-width: 959px){
+// 	.everything {width: 768px}
+// }
+
+// @media only screen and (min-width:480px) and (max-width: 767px){
+// 	.everything {width: 456px}
+// }
+
+@media only screen and (max-width: 1300px){
+	.everything {width: 1010px}
+}
+
+@media only screen and (max-width: 950px){
+	.everything {width: 300px}
+}
+
 
 
 

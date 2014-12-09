@@ -1,7 +1,14 @@
 .everything {
-  width: 1000px;
-  margin: 0 auto; }
+  width: 1320px;
+  margin: 0 auto;
+  display: block; }
 
+@media only screen and (max-width: 1300px) {
+  .everything {
+    width: 1010px; } }
+@media only screen and (max-width: 950px) {
+  .everything {
+    width: 300px; } }
 .media {
   margin: 10px;
   overflow: hidden;

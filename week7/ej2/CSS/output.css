@@ -1,7 +1,14 @@
+.everything {
+  width: 1000px;
+  margin: 0 auto; }
+
 .media {
   margin: 10px;
   overflow: hidden;
-  zoom: 1; }
+  zoom: 1;
+  width: 310px;
+  height: 150px;
+  float: left; }
   .media .img {
     float: left;
     margin-right: 10px; }
@@ -17,26 +24,18 @@
     _overflow: visible;
     zoom: 1; }
 
-.media-object {
-  margin: 10px;
-  overflow: hidden;
-  zoom: 1; }
+.media .img img, .media .bd .img_comment {
+  width: 100px;
+  height: 100px; }
 
-.media-object__img {
-  float: left;
-  margin-right: 10px; }
+.media .bd .name {
+  font-size: 16pt; }
 
-.media-object__imgblock {
-  display: block; }
+.media .bd .date, .media .bd .status, .media .bd .comment_name {
+  font-size: 14pt; }
 
-.media-object--imgExt {
-  float: right;
-  margin-left: 10px; }
-
-.media-object__bd {
-  overflow: hidden;
-  _overflow: visible;
-  zoom: 1; }
+.media .bd .comment, .media .bd .comment_date {
+  font-size: 13pt; }
 
 .status {
   margin-left: 20px;

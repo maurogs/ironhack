@@ -1,7 +1,19 @@
+
+.everything{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+
 .media{
 	margin: $margin_stack;
 	overflow: hidden;
 	zoom:1;
+
+	width: 310px;
+	height: 150px;
+	float: left;
 
 	.img{
 		float:left; 
@@ -9,10 +21,10 @@
 
         img{
 			display: block;
+			@extend %img_comment;
         }
 	}
-
-
+    
    	.imgExt{
 
 		float: right;
@@ -28,35 +40,61 @@
 		overflow: hidden;
 		_overflow: visible; 
 		zoom:1;
+
+		.name{
+			@extend %text_xl;
+		}
+
+		.date{
+			@extend %text_l;
+		}
+
+		.status{
+			@extend %text_l;
+		}
+		
+		.comment_name{
+			@extend %text_l;
+		}
+		.comment{
+			@extend %text_m;
+		}
+		.comment_date{
+			@extend %text_m;
+		}
+        .img_comment{
+			@extend %img_comment;
+        }
+
 	}
 }
 	
 
 
-
-.media-object { 
-		margin: $margin_stack;
-		overflow: hidden;
-		zoom:1;
+%img_profile{
+	width: 150px;
+	height: 150px;
 }
 
-.media-object__img {		
-		float:left; 
-       	margin-right: $margin_stack;
+%img_comment{
+	width: 100px;
+	height: 100px;
 }
 
-.media-object__imgblock{
-       		display: block;
-       	}
+%text_xl{
+	font-size: 16pt;
+}
 
-.media-object--imgExt{
-		float: right;
-		margin-left: $margin_stack;
+%text_l{
+	font-size: 14pt;
+}
+
+%text_m{
+	font-size: 13pt;
 }
 
 
-.media-object__bd{
-		overflow: hidden;
-		_overflow: visible;
-		zoom:1
-}
+
+
+
+

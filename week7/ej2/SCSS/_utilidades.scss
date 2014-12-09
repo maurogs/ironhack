@@ -32,3 +32,31 @@
 }
 	
 
+
+
+.media-object { 
+		margin: $margin_stack;
+		overflow: hidden;
+		zoom:1;
+}
+
+.media-object__img {		
+		float:left; 
+       	margin-right: $margin_stack;
+}
+
+.media-object__imgblock{
+       		display: block;
+       	}
+
+.media-object--imgExt{
+		float: right;
+		margin-left: $margin_stack;
+}
+
+
+.media-object__bd{
+		overflow: hidden;
+		_overflow: visible;
+		zoom:1
+}

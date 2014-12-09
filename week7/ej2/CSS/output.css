@@ -17,6 +17,27 @@
     _overflow: visible;
     zoom: 1; }
 
+.media-object {
+  margin: 10px;
+  overflow: hidden;
+  zoom: 1; }
+
+.media-object__img {
+  float: left;
+  margin-right: 10px; }
+
+.media-object__imgblock {
+  display: block; }
+
+.media-object--imgExt {
+  float: right;
+  margin-left: 10px; }
+
+.media-object__bd {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1; }
+
 .status {
   margin-left: 20px;
   margin-right: 20px; }
